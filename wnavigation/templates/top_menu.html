@@ -1,0 +1,7 @@
+{% load navigation_tags wagtailcore_tags  %}
+
+{% for menuitem in menuitems %}
+    <li>
+        <a href="{% pageurl menuitem %}" class="{% if menuitem.active %}active{% endif %}">{{ menuitem.title|capfirst }}</a>
+    </li>
+{% endfor %}

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "wmetadata",
     'wgeneralData',
     'wanalytics',
+    'wnavigation',
+    'services',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -93,6 +95,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'wagtail.contrib.settings.context_processors.settings',
+                'services.context_processors.service_page',
             ],
         },
     },
@@ -193,9 +196,9 @@ LOGGING = {
 
 # This is the human-readable name of your Wagtail install
 # which welcomes users upon login to the Wagtail admin.
-WAGTAIL_SITE_NAME = 'My Project'
+WAGTAIL_SITE_NAME = 'commons4all'
 
-WAGTAILADMIN_BASE_URL = 'https://serprolim.limpiezapozossepticos.com'
+WAGTAILADMIN_BASE_URL = 'https://commons4all.org'
 
 # Replace the search backend
 #WAGTAILSEARCH_BACKENDS = {

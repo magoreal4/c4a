@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% comment %} {% load wagtailimages_tags social_share filters_tags wagtailcore_tags wagtailmetadata_tags static %} {% endcomment %}
+{% load wagtailimages_tags filters_tags social_share wmetadata_tags static %}
+{% block meta_tag %}
+	{{ block.super }}
+  	{% comment %} {% meta_tags %} {% endcomment %}
+{% endblock %}
+
+{% block css %}
+	{% meta_tags %} 
+  	{{ block.super }}
+{% endblock %}
+
+{% block body_class %}
+xl:container mx-auto bg-gray-900
+{% endblock body_class %}
+
+{% block content %}
+{% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
+
+<main class="flex flex-col md:flex-row bg-gray-200 pt-16">	
+	<div class="w-full md:w-4/5 xl:max-w-5xl bg-white p-0 mx-auto sm:p-4 md:p-16">
+		<article class="font-noto flex flex-col max-w-3xl mx-auto rounded">			
+			{% image self.image width-320 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}			
+			<div class="-mt-20 p-6 m-4 mx-auto mb-0 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-100 bg-opacity-90">
+				<h1 class="text-center ">
+				{{ self.title|titulo }}
+				</h1>
+			</div>
+			<div class="prose prose-img:object-cover prose-img: prose-img:max-w-xs prose-hr:my-8 prose-a:text-blue-600 text-black lg:prose-lg mx-auto md:max-w-none lg:px-16 font-noto">
+			{{ self.body }}
+			</div>
+			<hr>
+		</article>
+		{% comment %} https://pypi.org/project/django-social-share/ {% endcomment %}
+		<div class="flex justify-around max-w-sm mx-auto pt-4 space-x-4 align-center h-12">
+			{% post_to_whatsapp object_or_url "Comparte via WhatsApp" "h-full w-full text-black hover:text-whatsapp" %}
+			{% post_to_facebook object_or_url "Compartir en Facebook!" "h-full w-full text-black hover:text-facebook" %}
+			{% post_to_twitter "{{ self.title }}. Mira!" object_or_url "Compartir por Twitter" "h-full w-full text-black hover:text-twitter" %}
+			{% send_email "{{ self.title }}" "{{self.introduction}}. Continuar leyendo en el siguiente link... {{ self.url }}" object_or_url "Comparte por correo" "h-full w-full text-black hover:text-mail" %}
+		</div>
+	</div>
+
+	<div class="hidden md:block w-1/4 text-center">
+		<div class="bg-white h-full">
+		{% for listpost in posts %}
+			{% if listpost.slug == self.slug %}
+			{% else %}
+			<a href="{{ listpost.url }}">
+				<div class="bg-primary border-2 m-2 p-2 py-4 rounded-lg shadow-md">
+					<h3 class="text-lg">{{ listpost.title }}</h3>
+				</div>
+			</a>
+			{% endif %}    
+		{% endfor %}
+		{% comment %} {% for anuncio in anuncio_list %}
+			<div class="text-black border-2 m-2 p-2 py-4 rounded-lg shadow-md">
+				<img class="object-contain w-full" src="{{ anuncio.img.url }}" alt="{{ anuncio.name }}">
+			</div>
+		{% endfor %} {% endcomment %}
+		</div>
+	</div>
+</main>
+{% endblock content %}
+
+
+{% block js %}
+	{{ block.super }}
+{% endblock js %}    
+
+
+

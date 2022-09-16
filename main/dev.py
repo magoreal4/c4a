@@ -25,6 +25,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     'tailwind',
     'theme',
     'django_browser_reload',
+    'wagtail.contrib.styleguide',
     # 'django_extensions',
     # # "debug_toolbar",
     # 'wagtail.contrib.styleguide',

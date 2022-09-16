@@ -1,12 +1,13 @@
 Django==4.1.1
 wagtail==4.0.1
 django-environ==0.9.0
+wagtailvideos==2.11.1
 # wagtailsvg==0.0.33
 # django-inline-svg==0.1.1
 # django-social-share==2.3.0
 gunicorn==20.1.0
 
-# django-tailwind==3.1.1
+django-tailwind==3.1.1
 # django-extensions==3.2.0
 # django-debug-toolbar==3.6.0
 # ipython==8.4.0

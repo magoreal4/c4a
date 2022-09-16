@@ -1,0 +1,19 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vite": "vite build --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^3.1.1"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1"
+  }
+}

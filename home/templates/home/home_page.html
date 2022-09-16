@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
-{% comment %} {% load wagtailimages_tags wagtailcore_tags filters_tags wmetadata_tags static cache %} {% endcomment %}
-{% load wagtailimages_tags wagtailcore_tags wmetadata_tags static cache %}
+{% load wagtailimages_tags wagtailcore_tags filters_tags wmetadata_tags static cache %}
 
 {% block meta_tag %}
   {% meta_tags %} 
@@ -10,23 +9,108 @@
   
 {% block css %}
   {{ block.super }}
-{% endblock %}
+  {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"> {% endcomment %}
+{% endblock css %}
 
-{% block body_class %}
-xl:container mx-auto bg-gray-500 
-{% endblock body_class %}
+{% block body_class %}bg-darkShades{% endblock body_class %}
 
+{% comment %} xl:container mx-auto bg-gray-500  {% endcomment %}
 {% block content %}
-{% include "header.html" with class="md:bg-primary xl:container w-full  z-50" %}
+{% include "header.html" with class="text-lightShades xl:container w-full z-50" %}
 
-{% cache 604800 home %}
-<main class="divide-y divide-gray-400 z-20">
-  
-    <h1 class="font-bold text-xl"> Pagina inicio </h1>
-   
+{% comment %} {% cache 604800 home %} {% endcomment %}
+<main class="relativ font-nunito z-0">
+
+  <section id="banner" class="home-parallax relative min-h-screen z-0">
+    <div class="caption-content centrear z-20 text-lightShades">
+
+      <div class="h-60 w-96 mx-auto relative">
+        {% comment %} <svg class="h-full w-full sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+          <g transform="translate(-20.775 10.257) scale(3.2282)" fill="none" stroke="#fff">
+              <circle cx="24.923" cy="24.702" r="16.048" stroke-width="1" />
+              <circle cx="43.706" cy="24.702" r="16.048" stroke-width="1" />
+              <path
+                  d="m32.68 13.043 7.271 6.03m-9.734-3.709 10.754 9.338M27.946 28.1l9.444 7.883m-9.446-12.485 10.886 9.02m-9.964-13.263 11.603 9.77"
+                  stroke-width="1" />
+          </g>
+        </svg> {% endcomment %}
+        <svg id="izq" class="mix-blend-multiply fill-darkAccent h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+              <circle fill-opacity="0.3" stroke="#fff" cx="50" cy="50" r="45" stroke-width="2" />          
+        </svg>
+        <svg id="der" class="mix-blend-multiply fill-brand h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+              <circle fill-opacity="0.3" stroke="#fff" cx="110" cy="50" r="45" stroke-width="2" />
+        </svg>
+        <p class="sombra-x2 animeLogo left-1/4 -translate-x-57p">commons</p>
+        <p class="sombra-x2 animeLogo left-1/2 -translate-x-1/2">4</p>
+        <p class="sombra-x2 animeLogo left-3/4 -translate-x-3/4">all</p>
+      </div>
+
+      {% comment %} <h2 class="mb-6 font-normal text-7xl">{{ self.title|lower }}</h2> {% endcomment %}
+      <h3 class="text-center">{{ self.slogan|titulo }}</h3>
+      <div class="scroll-icon mt-12">
+          <a class="scrollTo" data-scrollTo="portfolio" href="#services">
+            <img class="mx-auto" src="{% static 'img/scroll-icon.png' %}" alt="">
+          </a>
+      </div>
+    </div>
+      
+    <div class="absolute top-0 left-0 w-full h-full object-cover bg-darkShades bg-opacity-40 z-10"></div>
+
+    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay="" loop="" muted>
+        <source src="media/original_videos/highway-loop.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+
+{% comment %} 
+  <div id="video-container" class="relative w-full h-full overflow-hidden z-10">
+    <div class="video-overlay"></div>
+    <div class="video-content">
+        <div class="inner">
+            <h1 class="mb-6">{{ self.title|lower }}</h1>
+            <p>{{ self.slogan|titulo }}</p>
+            <div class="scroll-icon">
+                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="{% static 'img/scroll-icon.png' %}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <video class="z-10 min-w-full min-h-full max-w-none" autoplay="" loop="" muted>
+        <source src="media/original_videos/highway-loop.mp4" type="video/mp4" />
+    </video>
+  </div> {% endcomment %}
+
+
+
+  <section id="services" class="container relative bg-lightShades md:px-10 py-8 mx-auto items-center z-10">
+    <h2 class="p-1 sm:pt-4 text-center text-semibold text-brand">{{ self.services_title|upper }}</h3>
+    <h4 class="md:w-4/5 mx-auto sm:p-4 text-center text-darkShades">{{ self.services_intro}}</h4>  
+    <div class="flex flex-wrap justify-around">
+      {% for item in services %}
+      <div class="sm:w-1/2 lg:w-1/3 p-2 lg:p-4 ">
+        <a href="{% pageurl item %}" data-lightbox="">
+          <div class="card-objetivo gradiente relative text-lightShades">        
+                <div class="text-objetivo absolute w-full gradiente pt-10 bottom-0 left-0">
+                    <h1 class="md:translate-y-6 uppercase text-xl pl-2">{{ item.title }}</h1>
+                    <h2 class="md:translate-y-3 md:opacity-0 text-base sm:text-lg font-normal pl-2">Awesome Subtittle Goes Here</h2>
+                </div>
+              <div class="image">
+                {% image item.image fill-750x500 format-webp class="rounded-lg" %}    
+                  
+              </div>
+          </div>
+        </a>
+
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+
+
 </main>
 
-{% endcache %}
+{% comment %} {% endcache %} {% endcomment %}
 
 {% endblock content %}
 
