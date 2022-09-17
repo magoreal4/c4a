@@ -119,9 +119,6 @@
     @apply h-screen flex justify-center items-center
     }
 
-.animeLogo {
-    @apply text-3xl tracking-wide absolute top-1/2 -translate-y-1/2
-    }
 }
 
 .sombraBlanca {
@@ -348,3 +345,29 @@
 .menu-icon.active span:after {
     transform: rotate(-135deg);
 }
+
+.logoEffects .left {
+@apply opacity-0
+}
+
+.logoEffects .right {
+@apply opacity-0
+}
+
+.logoEffects .texto {
+@apply scale-x-0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

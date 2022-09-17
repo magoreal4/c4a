@@ -19,30 +19,33 @@
 {% include "header.html" with class="text-lightShades xl:container w-full z-50" %}
 
 {% comment %} {% cache 604800 home %} {% endcomment %}
-<main class="relativ font-nunito z-0 overflow-x-hidden">
+<main class="relative font-nunito z-0 overflow-x-hidden">
 
   <section id="banner" class="home-parallax relative min-h-screen z-0">
     <div class="caption-content centrear z-20 text-lightShades">
 
       <div class="h-60 w-96 mx-auto relative">
-        {% comment %} <svg class="h-full w-full sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-          <g transform="translate(-20.775 10.257) scale(3.2282)" fill="none" stroke="#fff">
-              <circle cx="24.923" cy="24.702" r="16.048" stroke-width="1" />
-              <circle cx="43.706" cy="24.702" r="16.048" stroke-width="1" />
-              <path
-                  d="m32.68 13.043 7.271 6.03m-9.734-3.709 10.754 9.338M27.946 28.1l9.444 7.883m-9.446-12.485 10.886 9.02m-9.964-13.263 11.603 9.77"
-                  stroke-width="1" />
-          </g>
-        </svg> {% endcomment %}
         <svg id="izq" class="mix-blend-multiply fill-darkAccent h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
               <circle fill-opacity="0.3" stroke="#fff" cx="50" cy="50" r="45" stroke-width="2" />          
         </svg>
         <svg id="der" class="mix-blend-multiply fill-brand h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
               <circle fill-opacity="0.3" stroke="#fff" cx="110" cy="50" r="45" stroke-width="2" />
         </svg>
-        <p class="sombra-x2 animeLogo left-1/4 -translate-x-57p">commons</p>
-        <p class="sombra-x2 animeLogo left-1/2 -translate-x-1/2">4</p>
-        <p class="sombra-x2 animeLogo left-3/4 -translate-x-3/4">all</p>
+        {% comment %} <div class="w-full absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+          <p id="" class="logoEffects text-4xl text-center tracking-wide sombra-x2">
+              <span class="izq">|</span>
+              <span class="inline cent">commons4all</span>
+              <span class="der">|</span>
+
+          </p>
+        </div> {% endcomment %}
+        <p class="logoEffects w-full text-4xl text-center tracking-wide sombra-x2 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+          <span class="text-wrapper inline-block ">
+            <span class="inline-block left">|</span>
+            <span class="inline-block texto">commons4all</span>
+            <span class="inline-block right">|</span>
+          </span>
+        </p>
       </div>
 
       {% comment %} <h2 class="mb-6 font-normal text-7xl">{{ self.title|lower }}</h2> {% endcomment %}

@@ -31,7 +31,7 @@ module.exports = {
                 "whatsapp": "#25d366"
             },
             translate: {
-                '57p': '57%',
+                '57p': '50%',
               },
             height: {
                 'screen70': '70vh',
