@@ -49,18 +49,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var tl = anime.timeline({
-        // easing: 'easeOutExpo',
+        easing: 'easeOutExpo',
     });
-    // tl.add({
-    //     targets: '#izq',
-    //     translateX: ['-200%', 0],
-    //     duration: 4000
-    // });
-    // tl.add({
-    //     targets: '#der',
-    //     translateX: ['200%', 0],
-    //     duration: 4000
-    // }, '-=4000');
+    tl.add({
+        targets: '#izq',
+        translateX: ['-200%', 0],
+        duration: 4000
+    });
+    tl.add({
+        targets: '#der',
+        translateX: ['200%', 0],
+        duration: 4000
+    }, '-=4000');
 
     // tl.add({
         // targets: '.logoEffects .texto',
@@ -90,14 +90,14 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0,
         scaleY:0,
         translateX:"-3.6em",
-      })
+      });
 
       tl.add({
         targets: '.logoEffects .left',
         scaleY: [0, 1],
         easing: "easeInOutExpo",
         duration: 1800,
-      }).add({
+      }, '-=1000').add({
         targets: '.logoEffects .right',
         scaleY: [0, 1],
         easing: "easeInOutExpo",
