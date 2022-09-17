@@ -1826,11 +1826,6 @@ nav {
   border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 
-.bg-brand{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 112 184 / var(--tw-bg-opacity));
-}
-
 .bg-darkShades{
   --tw-bg-opacity: 1;
   background-color: rgb(45 48 78 / var(--tw-bg-opacity));
@@ -1844,6 +1839,11 @@ nav {
 .bg-lightShades{
   --tw-bg-opacity: 1;
   background-color: rgb(242 240 242 / var(--tw-bg-opacity));
+}
+
+.bg-brand{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 112 184 / var(--tw-bg-opacity));
 }
 
 .bg-error{

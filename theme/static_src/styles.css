@@ -21,11 +21,9 @@
         @apply font-nunito;
         scroll-behavior: smooth;
     }
-
     hr {
         @apply my-4 !bg-black
     }
-
     form li {
         @apply mb-6 list-none 
     }
