@@ -9,12 +9,12 @@
   
 {% block css %}
   {{ block.super }}
-  {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home-style.css' %}"> {% endcomment %}
+
 {% endblock css %}
 
 {% block body_class %}bg-lightShades{% endblock body_class %}
 
-{% comment %} xl:container mx-auto bg-gray-500  {% endcomment %}
+
 {% block content %}
 {% include "header.html" with class="text-lightShades xl:container w-full z-50" %}
 
@@ -45,11 +45,6 @@
           <svg id="all" stroke="white" class="h-10 absolute left-2/3 top-1/2 -translate-y-1/2 sombra-x2" viewBox="0 0 14.3 9.3">
             <path fill="currentColor" transform="translate(-35 -44.5) scale(.26458)" d="m136.8 203.5 3.6-.4c-6.4-5.1-7.7-14.2-5.8-21.8l2.1-.1a12 12 0 0 1 12 9.2v3.8c0 1.8-.8 3.3-2 3.6h6.2c-1.1-.3-2-1.8-2-3.6v-22.6c0-1.8.9-3.3 2-3.6h-6.2c-12.9 0-19.1 23.9-9.9 35.5zm10-34.7c1 0 1.8 1 1.8 2.8v16.1a13 13 0 0 0-13.7-7.3c2-6.4 6.3-11.5 11.8-11.6zm9.9 29h28.6l1-4.1c-1.9 3-3 3.3-6 3.3H161v-25.4c0-1.8.8-3.3 2-3.6h-6.3c1.2.3 2 1.8 2 3.6v22.6c0 1.8-.8 3.3-2 3.6zm10-4.5H184l1-4.1c-1.8 3-3 3.3-5.9 3.3H171v-20.9c0-1.8.8-3.3 2-3.6h-6.3c1.2.3 2 1.8 2 3.6v18c0 2-.8 3.4-2 3.7z" aria-label="ALL" font-family="Allenia" style="-inkscape-font-specification:Allenia"/>
           </svg>
-       
-
-              {% comment %} <span >commons</span>
-              <span class="cen text-5xl absolute left-1/2 -translate-y-1/2">4</span>
-              <span class="der text-3xl absolute left-2/3 -translate-y-1/2 uppercase">all</span> {% endcomment %}
         
         </div>
       </div>
