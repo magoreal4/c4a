@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             if (homeSHeight - navHeight <= $(scrollTopp).scrollTop()) {
                 if (!navChange) {
-                    navbar.addClass('bg-darkAccent');
+                    navbar.addClass('bg-primary');
                     navChange = true;
                 }
             } else {
                 if (navChange) {
-                    navbar.removeClass('bg-darkAccent');
+                    navbar.removeClass('bg-primary');
                     navChange = false;
                 }
             }
