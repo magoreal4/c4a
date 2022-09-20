@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&family=Nunito:wght@200;400&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif&family=Nunito:wght@200;400&display=swap");*/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Poppins:wght@200;300;400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,19 +7,19 @@
 
 @layer base {
     h1 {
-        @apply text-2xl sm:text-4xl font-semibold 
+        @apply text-3xl sm:text-4xl font-bold 
     }
     h2 {
-        @apply text-xl sm:text-2xl font-semibold
+        @apply text-3xl sm:text-4xl font-semibold
     }
     h3 {
-        @apply text-lg sm:text-xl font-medium
+        @apply text-xl sm:text-2xl 
     }
     p {
         @apply text-base sm:text-lg 
     }
     html {
-        @apply font-nunito;
+        @apply font-poppins;
         scroll-behavior: smooth;
     }
     hr {
@@ -43,20 +44,11 @@
         @apply  bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
     }
 
-    body {
-        @apply overflow-x-hidden min-h-screen;
-        /* -webkit-perspective: 2500px;
-        perspective: 2500px; */
-    }
     table {
         @apply bg-white max-w-xl mx-auto;
         table-layout: fixed; 
         width: 100%;
     }
-
-    /* footer {
-        @apply h-10 w-full
-    } */
     nav {
         box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
     }
@@ -110,11 +102,11 @@
     @apply absolute bg-cover bg-center bg-no-repeat h-full w-full
     }
 
-.posDesc {
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2
-    }
 .centrearDiv {
     @apply h-screen flex justify-center items-center
+    }
+.centerAbs {
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
     }
 
 }

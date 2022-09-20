@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.3 9.3">
+  <defs>
+    <path id="a" d="M131.1 155.5h223.4v67.7H131.1z"/>
+    <path id="b" d="M195.7 231.6h27v53.1h-27z"/>
+    <path id="c" d="M123.2 302.5h219.6V372H123.2z"/>
+    <path id="d" d="M121.3 388.2h227.5v64.4H121.3z"/>
+  </defs>
+  <g font-size="42.7">
+    <g style="-inkscape-font-specification:ALLENA;white-space:pre;shape-inside:url(#a)" transform="translate(-35 -44.5) scale(.26458)">
+      <path d="m136.8 203.5 3.6-.4c-6.4-5.1-7.7-14.2-5.8-21.8l2.1-.1a12 12 0 0 1 12 9.2v3.8c0 1.8-.8 3.3-2 3.6h6.2c-1.1-.3-2-1.8-2-3.6v-22.6c0-1.8.9-3.3 2-3.6h-6.2c-12.9 0-19.1 23.9-9.9 35.5zm10-34.7c1 0 1.8 1 1.8 2.8v16.1a13 13 0 0 0-13.7-7.3c2-6.4 6.3-11.5 11.8-11.6zm9.9 29h28.6l1-4.1c-1.9 3-3 3.3-6 3.3H161v-25.4c0-1.8.8-3.3 2-3.6h-6.3c1.2.3 2 1.8 2 3.6v22.6c0 1.8-.8 3.3-2 3.6zm10-4.5H184l1-4.1c-1.8 3-3 3.3-5.9 3.3H171v-20.9c0-1.8.8-3.3 2-3.6h-6.3c1.2.3 2 1.8 2 3.6v18c0 2-.8 3.4-2 3.7z" aria-label="ALL" font-family="Allenia" style="-inkscape-font-specification:Allenia"/>
+    </g>
+    <text xml:space="preserve" font-family="ALLENA" style="-inkscape-font-specification:ALLENA;white-space:pre;shape-inside:url(#b)" transform="translate(-136.4 -66.7) scale(.26458)"><tspan x="195.7" y="273.9">4</tspan></text>
+    <text xml:space="preserve" font-family="Allenia" font-weight="400" style="-inkscape-font-specification:Allenia;white-space:pre;shape-inside:url(#c)" transform="translate(-136.4 -66.7) scale(.26458)"><tspan x="123.2" y="339.9">ALL</tspan></text>
+    <text xml:space="preserve" font-family="Allenia" font-weight="400" style="-inkscape-font-specification:Allenia;white-space:pre;shape-inside:url(#d)" transform="translate(-136.4 -66.7) scale(.26458)"><tspan x="121.3" y="425.5">ALL</tspan></text>
+  </g>
+</svg>

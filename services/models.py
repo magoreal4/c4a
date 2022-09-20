@@ -23,8 +23,15 @@ from wmetadata.models import MetadataPageMixin
 
 class ServicesPage(MetadataPageMixin, Page):
 
+    subtitle = models.TextField(
+        blank=True,
+        max_length= 45,
+        null=True,
+        help_text='Subtitulo to describe the services',
+        )
+
     introduction = models.TextField(
-        help_text='Text to describe the page',
+        help_text='Service introducion',
         blank=True
         )
 
@@ -37,7 +44,7 @@ class ServicesPage(MetadataPageMixin, Page):
         help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
         )
 
-    body = StreamField(
+    content = StreamField(
         BaseStreamBlock(), 
         verbose_name="Page body", 
         use_json_field=True
@@ -50,11 +57,11 @@ class ServicesPage(MetadataPageMixin, Page):
     
 
     content_panels = Page.content_panels + [
-        # FieldPanel('subtitle', classname="full"),
+        FieldPanel('subtitle', classname="full"),
         FieldPanel('introduction', classname="full"),
         FieldPanel('image'),
         FieldPanel('order'),
-        FieldPanel('body'),
+        FieldPanel('content'),
 
     ]
 

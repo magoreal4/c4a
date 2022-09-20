@@ -1,10 +1,3 @@
-/**
- * This is a minimal config.
- *
- * If you need the full config, get it from here:
- * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
- */
-
 module.exports = {
     content: [
         // '../templates/**/*.html',
@@ -13,8 +6,35 @@ module.exports = {
         '../../templates/**/*.html',
         '../../**/templates/**/*.html',
         '../../**/templates/**/**/*.html',
-        '../../home/index-home.js',
+        '../../home/*.js',
     ],
+    daisyui: {
+        styled: true,
+        themes: false,
+        base: true,
+        utils: true,
+        logs: true,
+        rtl: false,
+        prefix: "",
+        darkTheme: "dark",
+        themes: [
+            {
+                mytheme: {
+                    "primary": "#0070B8",
+                    "secondary": "#DA8276",
+                    "accent": "#B03F5B",
+                    "neutral": "#2D304E",
+                    "base-100": "#F2F0F2",
+                    "info": "#90cbd4",
+                    "success": "#219C6F",
+                    "warning": "#fdcb10",
+                    "error": "#F3393D",
+                },
+            },
+        ],
+    },
+
+
     theme: {
         extend: {
             colors: {
@@ -30,9 +50,12 @@ module.exports = {
                 "facebook": "#3b5998",
                 "whatsapp": "#25d366"
             },
+            inset: {
+                '2/100': '2%',
+            },
             translate: {
-                '57p': '50%',
-              },
+                '1/10': '10%',
+            },
             height: {
                 'screen70': '70vh',
                 'screen90': '90vh',
@@ -41,6 +64,8 @@ module.exports = {
                 'black': '0px 0px 6px black',
             },
             fontFamily: {
+                'josefin': ['Josefin Sans', 'sans-serif'],
+                'poppins': ['Poppins', 'sans-serif'],
                 'nunito': ['Nunito', 'sans-serif']
             },
             animation: {
@@ -54,6 +79,7 @@ module.exports = {
         // require('@tailwindcss/aspect-ratio'),
         // require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require("daisyui"),
         // require('@tailwindcss/line-clamp'),
     ],
 }
