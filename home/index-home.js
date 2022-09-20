@@ -1,5 +1,11 @@
 import anime from 'animejs/lib/anime.es.js';
+// import {
+//     createModal
+//   } from './modal';
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
 
     /* ---------------------------------------------- /*
  * Initialization General Scripts for all pages
@@ -36,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             if (homeSHeight - navHeight <= $(scrollTopp).scrollTop()) {
                 if (!navChange) {
-                    navbar.addClass('bg-brand');
+                    navbar.addClass('bg-darkAccent');
                     navChange = true;
                 }
             } else {
                 if (navChange) {
-                    navbar.removeClass('bg-brand');
+                    navbar.removeClass('bg-darkAccent');
                     navChange = false;
                 }
             }
@@ -63,89 +69,136 @@ document.addEventListener("DOMContentLoaded", function () {
     // }, '-=4000');
 
     // tl.add({
-        // targets: '.logoEffects .texto',
-        // opacity: [0,1],
-        // scaleX: [0, 1],
-        // easing: "easeOutExpo",
-        // duration: 600,
-        // delay: 1800
+    // targets: '.logoEffects .texto',
+    // opacity: [0,1],
+    // scaleX: [0, 1],
+    // easing: "easeOutExpo",
+    // duration: 600,
+    // delay: 1800
     //   }, 800 );
     //   tl.add({
     //     targets: '.logoEffects .left',
-        
+
     //     scaleY:0,
     //     easing: "easeOutExpo",
     //     duration: 0,
-        
+
     //   })
-    tl.add({
-        targets: '.logoEffects .left',
-        opacity: 1,
-        duration: 0,
-        scaleY:0,
-        translateX:"3.6em",
-      }).add({
-        targets: '.logoEffects .right',
-        opacity: 1,
-        duration: 0,
-        scaleY:0,
-        translateX:"-3.6em",
-      })
 
-      tl.add({
-        targets: '.logoEffects .left',
-        scaleY: [0, 1],
-        easing: "easeInOutExpo",
-        duration: 1800,
-      }).add({
-        targets: '.logoEffects .right',
-        scaleY: [0, 1],
-        easing: "easeInOutExpo",
-        duration: 1800,
-      }, '-=1800');
 
-      tl.add({
-        targets: '.logoEffects .left',
-        translateX: 0,
-        easing: "easeInOutExpo",
-        duration: 1600,
-      }).add({
-        targets: '.logoEffects .right',
-        translateX: 0,
-        easing: "easeInOutExpo",
-        duration: 1600,
-      }, '-=1600');
-
-      tl.add({
-        targets: '.logoEffects .texto',
-        opacity: [0,1],
-        scaleX: [0,1],
-        easing: "easeOutExpo",
-        duration: 1200,
-      }, '-=1000')
-
-      
-    //   tl.add({
+    // tl.add({
+    //     targets: '.logoEffects .left',
+    //     opacity: 1,
+    //     duration: 0,
+    //     scaleY:0,
+    //     translateX:"3.6em",
+    //   }).add({
     //     targets: '.logoEffects .right',
-    //     // opacity: [0,1],
-    //     translateX: "-3.6em",
-    //     easing: "easeOutExpo",
-    //     duration: 800,
-    //   }, '-=800');
+    //     opacity: 1,
+    //     duration: 0,
+    //     scaleY:0,
+    //     translateX:"-3.6em",
+    //   })
 
-    // tl.add({
-    //     targets: '#logoEffects .cent',
-    //     easing: 'easeInOutExpo',
+    //   tl.add({
+    //     targets: '.logoEffects .left',
+    //     scaleY: [0, 1],
+    //     easing: "easeInOutExpo",
+    //     duration: 1800,
+    //   }).add({
+    //     targets: '.logoEffects .right',
+    //     scaleY: [0, 1],
+    //     easing: "easeInOutExpo",
+    //     duration: 1800,
+    //   }, '-=1800');
+
+    //   tl.add({
+    //     targets: '.logoEffects .left',
+    //     translateX: 0,
+    //     easing: "easeInOutExpo",
+    //     duration: 1600,
+    //   }).add({
+    //     targets: '.logoEffects .right',
+    //     translateX: 0,
+    //     easing: "easeInOutExpo",
+    //     duration: 1600,
+    //   }, '-=1600');
+
+    //   tl.add({
+    //     targets: '.logoEffects .texto',
+    //     opacity: [0,1],
     //     scaleX: [0,1],
-    //     duration: 700
+    //     easing: "easeOutExpo",
+    //     duration: 1200,
+    //   }, '-=1000')
+
+    // const element = services.querySelector('.card-objetivo');
+    // element.addEventListener('click', handeClick);
+
+    // function handeClick(e) {
+    //     console.log(e);
+    // }
+
+    var urlService;
+    services.addEventListener("click", e => {
+        if (e.target.closest('.card-objetivo')) {
+            let servicio = e.target.parentNode.parentNode;
+            let title = servicio.getElementsByTagName("h1")[0].innerText;
+            let subtitle = servicio.getElementsByTagName("h2")[0].innerText;
+            let content = servicio.getElementsByClassName("service-content")[0].innerText;
+            urlService = servicio.getElementsByTagName("span")[0].innerText;
+
+            let modalTitle = modalServices.getElementsByTagName("h3");
+            let modalSubtitle = modalServices.getElementsByTagName("h4");
+            let modalContent = modalServices.getElementsByTagName("p");
+            modalTitle[0].innerHTML = title;
+            modalSubtitle[0].innerHTML = subtitle;
+            modalContent[0].innerHTML = content;
+        }
+    });
+
+    let btn = document.getElementById("modal-1-btn");
+    btn.addEventListener('click', e => {
+        document.getElementById('modal-1').checked = false;
+        window.location = urlService;
+    });
+
+ 
+
+    // function myFunction() {
+    //     alert("The function 'test' is executed");
+    //   }
+
+    // if (e.target.closest('.card-objetivo')) {
+    //     let servicio = e.target.parentNode.parentNode;
+    //     let id = servicio.getElementsByTagName("label");
+    //     let title = servicio.getElementsByTagName("h1");
+    //     let subtitle = servicio.getElementsByTagName("h2");
+    //     let content = servicio.getElementsByClassName("service-content");
+    //     console.log(id);
+    //     // let introduction = servicio.getElementsByTagName("h1").titulo[0].innerText;
+    //     // console.log(titulo.innerText);
+    //     createModal(title[0].innerText, subtitle[0].innerText, content[0].innerText);
+
+    //   }
+
     // });
 
 
 
-    // tl.add({
-    //     targets: '#logoEffects',
-    //     easing: 'easeInOutExpo',
-    //     scaleX: [0, 1],
-    //     duration: 700
+    // console.log(services.querySelectorAll("card-objetivo"));
+    // a.addEventListener("click", event => {
+    //     console.log(event);
+    // })
+
+    // .addEventListener("click", () => {
+    //     console.log('hola');
     // });
+
+    // onclick('show.bs.modal', function (e) {
+    //     let $trigger = $(e.relatedTarget);
+    //     alert($trigger.data('button'));
+    // })
+    // modalServices.classList.add("modal-open");
+
 });
