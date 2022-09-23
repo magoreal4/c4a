@@ -160,19 +160,26 @@ document.addEventListener("DOMContentLoaded", function () {
     var urlService;
     services.addEventListener("click", e => {
         if (e.target.closest('.card-objetivo')) {
-            let servicio = e.target.parentNode.parentNode;
-            let title = servicio.getElementsByTagName("h1")[0].innerText;
-            let subtitle = servicio.getElementsByTagName("h2")[0].innerText;
-            let content = servicio.getElementsByClassName("service-content")[0].innerText;
-            urlService = servicio.getElementsByTagName("span")[0].innerText;
-
+            let servicio = e.target.parentNode.parentNode.parentNode.parentNode;
+            
+            let title = servicio.getElementsByTagName("h2")[0].innerText;
             let modalTitle = modalServices.getElementsByTagName("h3");
-            let modalSubtitle = modalServices.getElementsByTagName("h4");
-            let modalContent = modalServices.getElementsByTagName("p");
             modalTitle[0].innerHTML = title;
+
+            let subtitle = servicio.getElementsByTagName("h4")[0].innerText;
+            let modalSubtitle = modalServices.getElementsByTagName("h4");
             modalSubtitle[0].innerHTML = subtitle;
+
+            let content = servicio.getElementsByClassName("service-content")[0].innerText;
+            let modalContent = modalServices.getElementsByTagName("p");
             modalContent[0].innerHTML = content;
+
+            urlService = servicio.getElementsByClassName("urlService")[0].innerText;
+   
+            
         }
+
+
     });
 
     let btn = document.getElementById("modal-1-btn");

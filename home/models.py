@@ -53,9 +53,28 @@ class HomePage(MetadataPageMixin, Page):
     #     null=True,
     #     on_delete=models.SET_NULL
     #     )
+    whoweare = models.CharField(
+        "Who we are?",
+        max_length=50,
+        blank=True,
+        null=True,
+        )
+    
+    whoweareText = models.TextField(
+        "Who we are Description",
+        max_length=350,
+        blank=True,
+        null=True,
+        )
 
     content_panels = Page.content_panels + [
         FieldPanel('slogan'),
+        
+        MultiFieldPanel([
+            FieldPanel("whoweare"),
+            FieldPanel("whoweareText"),
+        ], heading="Who we are?"),
+
         MultiFieldPanel([
             FieldPanel("services_title"),
             FieldPanel("services_intro"),
