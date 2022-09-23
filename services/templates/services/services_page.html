@@ -16,11 +16,185 @@
 {% block body_class %}bg-base-100 w-full{% endblock body_class %}
 
 {% block content %}
-{% include "header.html" with class="text-lightShades bg-primary mx-auto w-full z-50" %}
+{% include "header.html" with class="mx-auto w-full z-50" navShadow="" %}
 
-<main class="main pt-20">
-	
-	  <div class="container mx-auto sm:px-4">
+<main class="">
+	<!-- PAGE TITLE SMALL -->
+	<div class="py-12 md:pt-20">
+		<div class="container mx-auto sm:px-4">
+            <div class="flex flex-wrap">
+              
+				<div class="md:w-1/2 p-6">
+					<h1 class="text-primary border-l-4 border-secondary tracking-wider py-6 p-10">{{self.title|upper}}</h2>
+				</div>
+              
+				<!-- breadcrumbs -->
+				<div class="md:w-1/2 p-4 pt-10 text-right">
+					<div class="md:mt-12 text-right uppercase tracking-widest">
+						<a href="index.html">Home</a><span class="slash-divider">/</span><a href="#">BLOG</a><span class="slash-divider">/</span><span class="bread-current">RIGHT SIDEBAR</span>
+					</div>
+				</div>
+              
+            </div>
+          </div>
+		</div>
+	</div>
+
+	<!-- COTENT CONTAINER -->
+	<div class="container mx-auto sm:px-4 ">
+		<div class="flex flex-wrap ">
+		
+			<!-- CONTENT -->
+			<div class="sm:w-2/3 px-4 blog-main-posts">
+		
+				<!-- POST ITEM -->
+				<div class="blog-post wow fadeIn pb-50">
+					{% image self.image fill-750x420 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}
+					<div class="prose-lg">
+					{{ self.content }}
+
+					</div>
+				</div>
+			</div>
+				
+		<!-- SIDEBAR -->
+		<div class="sm:w-1/3 px-4 md:w-1/4 col-md-offset-1">
+		
+			<!-- SEARCH -->
+			<div class="widget">
+				<form class="form-search widget-search-form" action="page-search-results.html" method="get">
+				<input type="text" name="q" class="input-search-widget" placeholder="Search">
+				<button class="" type="submit" title="Start Search">
+					<span aria-hidden="true" class="icon_search"></span>
+				</button>
+				</form>
+			</div>
+			
+			{% comment %} <!-- WIDGET -->
+			<div class="widget">
+				
+				<h5 class="widget-title">Categories</h5>
+				
+				<div class="widget-body">
+				<ul class="clearlist widget-menu">
+					<li>
+					<a href="#" title="">Branding</a><small><span class="slash-divider">/</span> 10</small>
+					</li>
+					<li>
+					<a href="#" title="">Development</a><small><span class="slash-divider">/</span> 21</small>
+					</li>
+					<li>
+					<a href="#" title="">Technology </a><small><span class="slash-divider">/</span> 11</small>
+					</li>
+					<li>
+					<a href="#" title="">Social Media</a><small><span class="slash-divider">/</span> 16</small>
+					</li>
+					<li>
+					<a href="#" title="">Entertainment </a><small><span class="slash-divider">/</span> 8</small>
+					</li>
+				</ul>
+				</div>
+				
+			</div> {% endcomment %}
+			
+			<!-- WIDGET RECENT -->
+			<div class="widget my-5">
+				
+				<h5 class="uppercase tracking-wider text-primary">Recent posts</h5>
+				
+				<ul class="clearlist ">
+					<li class="flex my-5">
+						<a href="">
+							<div class ="h-24 w-24 bg-gray-300">
+							</div>
+						</a>
+						<div class="mt-2 pl-4">
+							<a href="#" title="" class="text-secondary">TIME FOR MINIMALISM</a>
+							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
+						</div>
+					</li>
+
+					<li class="flex my-5">
+						<a href="">
+							<div class ="h-24 w-24 bg-gray-300">
+							</div>
+						</a>
+						<div class="mt-2 pl-4">
+							<a href="#" title="" class="text-secondary">NEW TRENDS IN WEB</a>
+							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
+						</div>
+					</li>
+
+					<li class="flex my-5">
+						<a href="">
+							<div class ="h-24 w-24 bg-gray-300">
+							</div>
+						</a>
+						<div class="mt-2 pl-4">
+							<a href="#" title="" class="text-secondary">THE SOUND OF LIFE</a>
+							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
+						</div>
+					</li>
+
+				</ul>
+			</div>
+				
+		
+			
+			{% comment %} <!-- WIDGET -->
+			<div class="widget">
+								
+				<h5 class="widget-title">Tags</h5>
+				
+				<div class="widget-body">
+				<div class="tags">
+					<a href="">Design</a>
+					<a href="">Development</a>
+					<a href="">Minimal</a>
+					<a href="">Branding</a>
+					<a href="">Unique</a>
+					<a href="">Clean</a>
+					<a href="">UI &amp; UX</a>
+				</div>
+				</div>
+				
+			</div> {% endcomment %}
+			
+			<!-- WIDGET -->
+			<div class="widget my-5">
+				<h5 class="uppercase tracking-wider text-primary">Important</h5>
+
+				<div class="widget-body">
+				<p>Lorem ipsum dolor sit amet, cotur adcing elit. Recusandae, nostrum, cumque culpa provident aliquam commodi assumenda</p>
+				</div>
+			</div>
+			
+			{% comment %} <!-- WIDGET -->
+			<div class="widget">
+				
+				<h5 class="widget-title">Archive</h5>
+				
+				<div class="widget-body">
+				<ul class="clearlist widget-menu">
+					<li>
+					<a href="#" title="">October 2020</a><small><span class="slash-divider">/</span> 10</small>
+					</li>
+					<li>
+					<a href="#" title="">July 2020</a><small><span class="slash-divider">/</span> 21</small>
+					</li>
+					<li>
+					<a href="#" title="">June 2020 </a><small><span class="slash-divider">/</span> 11</small>
+					</li>
+				</ul>
+				</div>
+				
+			</div>
+
+			</div> {% endcomment %}
+			
+		</div>
+		</div>
+	  {% comment %} <div class="container mx-auto sm:px-4">
 		<div class="flex flex-wrap ">
 		  <div class="sm:w-2/3 pr-4 pl-4">
 			<div class="post">
@@ -31,171 +205,12 @@
 			  <div class="prose-lg">
 				{{ self.content }}
 			  </div>
-			</div>
-
-			{% comment %} <div class="comments">
-			  <h4 class="comment-title font-alt">There are 3 comments</h4>
-			  <div class="comment clearfix">
-				<div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg" alt="avatar"/></div>
-				<div class="comment-content clearfix">
-				  <div class="comment-author font-alt"><a href="#">John Doe</a></div>
-				  <div class="comment-body">
-					<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-				  </div>
-				  <div class="comment-meta font-alt">Today, 14:55 - <a href="#">Reply</a>
-				  </div>
-				</div>
-				<div class="comment clearfix">
-				  <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg" alt="avatar"/></div>
-				  <div class="comment-content clearfix">
-					<div class="comment-author font-alt"><a href="#">Mark Stone</a></div>
-					<div class="comment-body">
-					  <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-					</div>
-					<div class="comment-meta font-alt">Today, 15:34 - <a href="#">Reply</a>
-					</div>
-				  </div>
-				</div>
-			  </div>
-			  <div class="comment clearfix">
-				<div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg" alt="avatar"/></div>
-				<div class="comment-content clearfix">
-				  <div class="comment-author font-alt"><a href="#">Andy</a></div>
-				  <div class="comment-body">
-					<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-				  </div>
-				  <div class="comment-meta font-alt">Today, 14:59 - <a href="#">Reply</a>
-				  </div>
-				</div>
-			  </div>
 			</div> {% endcomment %}
 
-
-			{% comment %} <div class="comment-form">
-			  <h4 class="comment-form-title font-alt">Add your comment</h4>
-			  <form method="post">
-				<div class="mb-4">
-				  <label class="sr-only" for="name">Name</label>
-				  <input class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" id="name" type="text" name="name" placeholder="Name"/>
-				</div>
-				<div class="mb-4">
-				  <label class="sr-only" for="email">Name</label>
-				  <input class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" id="email" type="text" name="email" placeholder="E-mail"/>
-				</div>
-				<div class="mb-4">
-				  <textarea class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" id="comment" name="comment" rows="4" placeholder="Comment"></textarea>
-				</div>
-				<button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline btn-round btn-d" type="submit">Post comment</button>
-			  </form>
-			</div> {% endcomment %}
-
-		  </div>
-		  <div class="sm:w-1/3 pr-4 pl-4 md:w-1/4 pr-4 pl-4 col-md-offset-1 sidebar">
-			<div class="widget">
-			  <form role="form">
-				<div class="search-box">
-				  <input class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" type="text" placeholder="Search..."/>
-				  <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-				</div>
-			  </form>
-			</div>
-			<div class="widget">
-			  <h5 class="widget-title font-alt">Blog Categories</h5>
-			  <ul class="icon-list">
-				<li><a href="#">Photography - 7</a></li>
-				<li><a href="#">Web Design - 3</a></li>
-				<li><a href="#">Illustration - 12</a></li>
-				<li><a href="#">Marketing - 1</a></li>
-				<li><a href="#">Wordpress - 16</a></li>
-			  </ul>
-			</div>
-			<div class="widget">
-			  <h5 class="widget-title font-alt">Popular Posts</h5>
-			  <ul class="widget-posts">
-				<li class="clearfix">
-				  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
-				  <div class="widget-posts-body">
-					<div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-					<div class="widget-posts-meta">23 january</div>
-				  </div>
-				</li>
-				<li class="clearfix">
-				  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-				  <div class="widget-posts-body">
-					<div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-					<div class="widget-posts-meta">15 February</div>
-				  </div>
-				</li>
-				<li class="clearfix">
-				  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-3.jpg" alt="Post Thumbnail"/></a></div>
-				  <div class="widget-posts-body">
-					<div class="widget-posts-title"><a href="#">Eco bag Mockup</a></div>
-					<div class="widget-posts-meta">21 February</div>
-				  </div>
-				</li>
-				<li class="clearfix">
-				  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-4.jpg" alt="Post Thumbnail"/></a></div>
-				  <div class="widget-posts-body">
-					<div class="widget-posts-title"><a href="#">Bottle Mockup</a></div>
-					<div class="widget-posts-meta">2 March</div>
-				  </div>
-				</li>
-			  </ul>
-			</div>
-			<div class="widget">
-			  <h5 class="widget-title font-alt">Tag</h5>
-			  <div class="tags font-serif"><a href="#" rel="tag">Blog</a><a href="#" rel="tag">Photo</a><a href="#" rel="tag">Video</a><a href="#" rel="tag">Image</a><a href="#" rel="tag">Minimal</a><a href="#" rel="tag">Post</a><a href="#" rel="tag">Theme</a><a href="#" rel="tag">Ideas</a><a href="#" rel="tag">Tags</a><a href="#" rel="tag">Bootstrap</a><a href="#" rel="tag">Popular</a><a href="#" rel="tag">English</a>
-			  </div>
-			</div>
-			<div class="widget">
-			  <h5 class="widget-title font-alt">Text</h5>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
-			</div>
-			<div class="widget">
-			  <h5 class="widget-title font-alt">Recent Comments</h5>
-			  <ul class="icon-list">
-				<li>Maria on <a href="#">Designer Desk Essentials</a></li>
-				<li>John on <a href="#">Realistic Business Card Mockup</a></li>
-				<li>Andy on <a href="#">Eco bag Mockup</a></li>
-				<li>Jack on <a href="#">Bottle Mockup</a></li>
-				<li>Mark on <a href="#">Our trip to the Alps</a></li>
-			  </ul>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	
-
-
-  </div>
-  <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
 </main>
 
 
 
-
-{% comment %} <main class="flex flex-col md:flex-row pt-16">	
-	<div class="w-full md:w-4/5 xl:max-w-5xl p-0 mx-auto sm:p-4 md:p-16">
-		<article class="font-noto flex flex-col max-w-3xl mx-auto rounded">			
-			{% image self.image width-320 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}			
-			<div class="-mt-20 p-6 m-4 mx-auto mb-0 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-100 bg-opacity-90">
-				<h1 class="text-center ">
-				{{ self.title|titulo }}
-				</h1>
-			</div>
-			<div class="prose prose-img:object-cover prose-img: prose-img:max-w-xs prose-hr:my-8 prose-a:text-blue-600 text-black lg:prose-lg mx-auto md:max-w-none lg:px-16 font-noto">
-			{{ self.body }}
-			</div>
-			<hr>
-		</article>
-		
-		<div class="flex justify-around max-w-sm mx-auto pt-4 space-x-4 align-center h-12">
-			{% post_to_whatsapp object_or_url "Comparte via WhatsApp" "h-full w-full text-black hover:text-whatsapp" %}
-			{% post_to_facebook object_or_url "Compartir en Facebook!" "h-full w-full text-black hover:text-facebook" %}
-			{% post_to_twitter "{{ self.title }}. Mira!" object_or_url "Compartir por Twitter" "h-full w-full text-black hover:text-twitter" %}
-			{% send_email "{{ self.title }}" "{{self.introduction}}. Continuar leyendo en el siguiente link... {{ self.url }}" object_or_url "Comparte por correo" "h-full w-full text-black hover:text-mail" %}
-		</div>
-	</div>
-</main> {% endcomment %}
 
 {% endblock content %}
 

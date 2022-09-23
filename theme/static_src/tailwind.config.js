@@ -8,6 +8,7 @@ module.exports = {
         // '../../**/templates/**/**/*.html',
         '../../home/*.js',
     ],
+    darkMode: 'class',
     daisyui: {
         styled: true,
         themes: false,
@@ -57,6 +58,7 @@ module.exports = {
                 '1/10': '10%',
             },
             height: {
+                '120': '30rem',
                 'screen70': '70vh',
                 'screen90': '90vh',
             },

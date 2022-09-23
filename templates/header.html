@@ -1,14 +1,12 @@
 {% load static navigation_tags %}
-{% comment %} {% load static navigation_tags svg %} {% endcomment %}
 
-
-<header class="w-full">
-    <nav class="{{ class }} bg-opacity-40 h-90 fixed w-full top-0 z-50">
-        <div class="float-left ml-7 text-3xl mt-2 tracking-wide">
+<header class="{{ class }}">
+    <nav class="h-20 fixed w-full top-0 z-50 {{navShadow}}">
+        <div class="float-left ml-7 mt-2 text-3xl tracking-wide">
             <a href="/">
                 <div class="flex items-center">
-                    <svg class="h-16 w-16 mr-3 sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-                        <g transform="translate(-20.775 10.257) scale(3.2282)" fill="none" stroke="#fff">
+                    <svg class="w-16 mr-3 sombra-x2 dark:text-white text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+                        <g transform="translate(-20.775 10.257) scale(3.2282)" fill="none" stroke="currentColor">
                             <circle cx="24.923" cy="24.702" r="16.048" stroke-width="1.442" />
                             <circle cx="43.706" cy="24.702" r="16.048" stroke-width="1.442" />
                             <path
@@ -16,12 +14,13 @@
                                 stroke-width="1.5" />
                         </g>
                     </svg>
-                    <span class="sombra-x2">commons4all</span>
+                    <span class="sombra-x2 dark:text-white text-black">commons4all</span>
                 </div>
             </a>
         </div>
-        <div class="menu-icon absolute top-4 right-4">
-            <span></span>
+        <div class="menu-icon h-12 w-12 border-2 rounded-md absolute top-4 right-4 dark:border-white border-black">
+            <span class="dark:bg-white bg-black dark:before:bg-white before:bg-black dark:after:bg-white after:bg-black"></span>
+            <span class=""></span>
         </div>
     </nav>
     <section class="overlay-menu bg-darkShades text-lightShades">
