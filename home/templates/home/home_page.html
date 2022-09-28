@@ -12,26 +12,27 @@
 
 {% endblock css %}
 
-{% block body_class %}bg-lightShades{% endblock body_class %}
+{% block body_class %}bg-logo{% endblock body_class %}
 
 
 {% block content %}
 {% include "header.html" with class="mx-auto w-full z-50 dark" navShadow="navShadow"%}
 
 {% comment %} {% cache 604800 home %} {% endcomment %}
-<main class="z-0 overflow-x-hidden font-poppins">
+<main class="z-0 overflow-x-hidden">
 
 <!-- Banner -->
-  <section id="banner" class="home-parallax relative min-h-screen z-0">
-    <div class="caption-content centrear z-20 text-lightShades">
+  <section id="banner" class="min-h-screen z-0 rellax">
+    <div class="centrear z-20 text-lightShades" >
 
-      <div class="h-60 w-96 mx-auto relative">
+      <div class="h-60 w-96 mx-auto rellax" data-rellax-speed="-5">
         <svg id="izq" class="mix-blend-multiply fill-brand h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
               <circle fill-opacity="0.3" stroke="#fff" cx="50" cy="50" r="49" stroke-width="1.5" />          
         </svg>
         <svg id="der" class="mix-blend-multiply fill-darkAccent h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
               <circle fill-opacity="0.3" stroke="#fff" cx="110" cy="50" r="35" stroke-width="1.5" />
         </svg>
+        
         <div id="logoEfect" class="relative top-1/2 -translate-y-1/2">
           
           <svg id="commons" stroke="white" class="h-6 absolute left-2/100 top-1/2 -translate-y-1/2 sombra-x2" viewBox="0 0 54.5 8">    
@@ -49,15 +50,15 @@
         </div>
       </div>
 
-      <h3 class="text-center mt-4">{{ self.slogan|titulo }}</h3>
-      <div class="scroll-icon mt-12">
+      <h3 class="text-center text-light t-4 rellax" data-rellax-speed="-4">{{ self.slogan|titulo }}</h3>
+      <div class="scroll-icon mt-12 rellax" data-rellax-speed="-4">
           <a class="scrollTo" data-scrollTo="portfolio" href="#services">
             <img class="mx-auto" src="{% static 'img/scroll-icon.png' %}" alt="">
           </a>
       </div>
     </div>
       
-    <div class="absolute top-0 left-0 w-full h-full object-cover bg-primary bg-opacity-30 z-10"></div>
+    <div class="absolute top-0 left-0 w-full h-full object-cover bg-brand bg-opacity-30 z-10"></div>
 
     <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay="" loop="" muted>
         <source src="media/original_videos/highway-loop.mp4" type="video/mp4" />
@@ -66,14 +67,14 @@
 <!-- Fin Banner -->
 
 
-<section class="bg-lightShades relative">
+<section class="bg-logo" >
   <!-- FEATURES 1 Who we are? -->
   <div class="container md:px-10 py-4 mx-auto items-center z-10">
     <div class="container mx-auto sm:px-4">
       <div class="flex flex-wrap pt-16">
       
         <div class="md:w-1/3 p-6">
-          <h2 class="text-primary border-l-4 border-secondary tracking-wider py-6 p-10">{{self.whoweare|upper}}</h2>
+          <h2 class="text-brand border-l-4 border-darkAccent tracking-wider py-6 p-10">{{self.whoweare|upper}}</h2>
         </div>
         
         <div class="md:w-2/3 px-6 md:py-6">
@@ -94,27 +95,22 @@
 
       <div class="md:w-1/2 p-4">
         <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto">
-          <label for="modal-1" class="modal-button cursor-pointer">
-            <h2 class="uppercase text-primary">{{ item.title }}</h2>
-          </label>
-          <div class="border-t-4 border-secondary w-24 my-3"></div>
+          <h2 class="uppercase cursor-pointer text-brand">{{ item.title }}</h2>
+          <div class="border-t-4 border-darkAccent w-24 my-3"></div>
           <h4 class="md:w-9/12 pt-3">{{ item.subtitle }}</h4>
 
           <!-- solo para información del modal -->
           <div class="hidden service-content">{{item.content}}</div> 
           <div class="urlService hidden">{% pageurl item %}</div>
           <!-- solo para información del modal -->
-
         </div>
       </div>
       
-      <div class="w-full md:w-1/2 {% cycle '' 'md:-order-1' %}">
-        <label for="modal-1" class="modal-button">      
-          <div class="relative w-full h-120 cursor-pointer">
-            <div class="absolute top-0 left-0 w-full h-full object-cover bg-primary bg-opacity-30 z-10"></div>
-            {% image item.image height-480 format-webp class=" top-0 left-0 h-full w-full object-cover " %}    
-          </div>
-        </label>
+      <div class="relative w-full md:w-1/2 {% cycle '' 'md:-order-1' %}">
+        <div class="w-full h-120 cursor-pointer">
+          <div class="absolute top-0 left-0 w-full h-full object-cover bg-brand bg-opacity-30 z-10"></div>
+          {% image item.image height-480 format-webp class=" top-0 left-0 h-full w-full object-cover " %}    
+        </div>
       </div>
     </div>
   {% endfor %}
@@ -125,7 +121,7 @@
 
 <!-- Servicios -->
   {% comment %} <section id="services" class="container relative bg-lightShades md:px-10 py-4 mx-auto items-center z-10">
-    <h2 class="p-1 sm:pt-4 text-center text-primary">{{ self.services_title|upper }}</h3>
+    <h2 class="p-1 sm:pt-4 text-center text-brand">{{ self.services_title|upper }}</h3>
     <h4 class="md:w-4/5 mx-auto sm:p-4 text-center text-darkShades">{{ self.services_intro}}</h4>  
     <div class="flex flex-wrap justify-around">
       {% for item in services %}
@@ -152,23 +148,35 @@
 <!-- Fin Servicios -->
 
 
-
-<!-- Put this part before </body> tag -->
-<div id="modalServices">
-  <input type="checkbox" id="modal-1" class="modal-toggle" />
-
-  <div class="modal">
-    <div class="modal-box w-11/12 max-w-5xl">
-      <h3 class="text-xl text-primary font-bold"></h3>
-      <label for="modal-1" class="btn btn-sm btn-circle btn-outline absolute right-2 top-2">✕</label> 
-      <h4 class="text-lg text-secondary font-semibold"></h4>
-      <p class="py-4"></p>
-      <div class="modal-action">
-        <input id="modal-1-btn" type="button" class="mx-auto btn btn-primary" value="Read More.." >
+<!-- Modal Services -->
+<div id="modal-services"  tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex">
+  <div class="p-4 w-full max-w-7xl h-full md:h-auto">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-dark">
+              <div>
+                <h3 class="text-xl font-medium text-brand uppercase dark:text-white"></h3>
+                <h4 class="text-lg text-secondary text-darkAccent"></h4>
+              </div>
+              <button id="modal-btn" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+          </div>
+         
+          <!-- Modal body -->
+          <p class="p-6 space-y-6 prose-lg"></p>
+          <!-- Modal footer -->
+          <div class="text-center p-6 rounded-b border-t dark:border-dark">
+              <a id="readMore-btn" type="button" class="mx-auto btn-readMore">Read More...</a>
+          </div>
       </div>
-    </div>
   </div>
 </div>
+
+<div id="backdrop" class="hidden bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40"></div>
 
 </main>
 

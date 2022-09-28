@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra-x2 dark:text-white text-black" viewBox="0 0 146 100">
+  <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="#fff" stroke-width="1.5"/>
+  <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="#fff" stroke-width="1.5"/>
+  <path stroke="#fff" stroke-width="1.7" d="m84 26 12 7m-17 0 19 12M78 64l15 9M75 52l21 13M76 42l23 13"/>
+</svg>

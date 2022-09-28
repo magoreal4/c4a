@@ -1,0 +1,9 @@
+<svg class="w-16 mr-3 sombra-x2 dark:text-white text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+    <g transform="translate(-20.775 10.257) scale(3.2282)" fill="none" stroke="currentColor">
+        <circle cx="24.923" cy="24.702" r="16.048" stroke-width="1.442" />
+        <circle cx="43.706" cy="24.702" r="16.048" stroke-width="1.442" />
+        <path
+            d="m32.68 13.043 7.271 6.03m-9.734-3.709 10.754 9.338M27.946 28.1l9.444 7.883m-9.446-12.485 10.886 9.02m-9.964-13.263 11.603 9.77"
+            stroke-width="1.5" />
+    </g>
+</svg>

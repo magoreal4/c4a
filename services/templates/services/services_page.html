@@ -13,23 +13,22 @@
 
 {% endblock %}
 
-{% block body_class %}bg-base-100 w-full{% endblock body_class %}
+{% block body_class %}bg-light w-full{% endblock body_class %}
 
 {% block content %}
 {% include "header.html" with class="mx-auto w-full z-50" navShadow="" %}
 
 <main class="">
 	<!-- PAGE TITLE SMALL -->
-	<div class="py-12 md:pt-20">
-		<div class="container mx-auto sm:px-4">
-            <div class="flex flex-wrap">
-              
+	<div class="mt-20 mb-12 bg-brand bg-opacity-10">
+		<div class="container md:py-8 mx-auto sm:px-4">
+            <div class="flex flex-wrap">              
 				<div class="md:w-1/2 p-6">
-					<h1 class="text-primary border-l-4 border-secondary tracking-wider py-6 p-10">{{self.title|upper}}</h2>
+					<h1 class="text-brand border-l-4 border-lightAccent tracking-wider py-6 p-10">{{self.title|upper}}</h2>
 				</div>
               
 				<!-- breadcrumbs -->
-				<div class="md:w-1/2 p-4 pt-10 text-right">
+				<div class="md:w-1/2 p-4 pt-0 md:pt-10 ml-auto text-right">
 					<div class="md:mt-12 text-right uppercase tracking-widest">
 						<a href="index.html">Home</a><span class="slash-divider">/</span><a href="#">BLOG</a><span class="slash-divider">/</span><span class="bread-current">RIGHT SIDEBAR</span>
 					</div>
@@ -100,38 +99,38 @@
 			<!-- WIDGET RECENT -->
 			<div class="widget my-5">
 				
-				<h5 class="uppercase tracking-wider text-primary">Recent posts</h5>
+				<h5 class="uppercase tracking-wider text-brand">Recent posts</h5>
 				
 				<ul class="clearlist ">
 					<li class="flex my-5">
 						<a href="">
-							<div class ="h-24 w-24 bg-gray-300">
+							<div class ="h-24 w-24 bg-gray-700">
 							</div>
 						</a>
 						<div class="mt-2 pl-4">
-							<a href="#" title="" class="text-secondary">TIME FOR MINIMALISM</a>
+							<a href="#" title="" class="text-lightAccent">TIME FOR MINIMALISM</a>
 							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
 						</div>
 					</li>
 
 					<li class="flex my-5">
 						<a href="">
-							<div class ="h-24 w-24 bg-gray-300">
+							<div class ="h-24 w-24 bg-gray-700">
 							</div>
 						</a>
 						<div class="mt-2 pl-4">
-							<a href="#" title="" class="text-secondary">NEW TRENDS IN WEB</a>
+							<a href="#" title="" class="text-lightAccent">NEW TRENDS IN WEB</a>
 							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
 						</div>
 					</li>
 
 					<li class="flex my-5">
 						<a href="">
-							<div class ="h-24 w-24 bg-gray-300">
+							<div class ="h-24 w-24 bg-gray-700">
 							</div>
 						</a>
 						<div class="mt-2 pl-4">
-							<a href="#" title="" class="text-secondary">THE SOUND OF LIFE</a>
+							<a href="#" title="" class="text-lightAccent">THE SOUND OF LIFE</a>
 							<div class="my-2">21 Jule<span class="slash-divider">/</span> John Doe</div> 
 						</div>
 					</li>
@@ -162,7 +161,7 @@
 			
 			<!-- WIDGET -->
 			<div class="widget my-5">
-				<h5 class="uppercase tracking-wider text-primary">Important</h5>
+				<h5 class="uppercase tracking-wider text-brand">Important</h5>
 
 				<div class="widget-body">
 				<p>Lorem ipsum dolor sit amet, cotur adcing elit. Recusandae, nostrum, cumque culpa provident aliquam commodi assumenda</p>

@@ -27,6 +27,6 @@
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {
-    "daisyui": "^2.28.0"
+    "flowbite": "^1.5.3"
   }
 }

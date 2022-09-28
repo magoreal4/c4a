@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags filters_tags wagtailcore_tags static %}
+
+{% block meta_tag %}
+  {{ block.super }}
+{% endblock %}
+
+{% block body_class %}
+xl:container mx-auto bg-gray-900
+{% endblock body_class %}
+
+{% block content %}
+{% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
+
+<section class="bg-gray-200 md:pt-20">
+	<div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+		{% for post in posts %}
+			{% if forloop.first %}
+			<a rel="" href="{{ post.url }}" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline md:grid md:grid-cols-12 bg-white shadow-lg rounded-xl">
+				{% image post.image height-320 format-webp class="rounded-l-xl sm:object-cover w-full h-64 rounded sm:h-96 md:col-span-7" %}
+				{% comment %} <img src="https://source.unsplash.com/random/480x360" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7"> {% endcomment %}
+				<div class="p-6 space-y-2 md:col-span-5">
+					<h1 class="mb-6 sm:text-3xl text-center font-semibold group-hover:underline group-focus:underline">{{ post.title|titulo }}</h1>
+					{% comment %} <span class="text-xs dark:text-gray-400">February 19, 2021</span> {% endcomment %}
+					<p>{{ post.introduction }}</p>
+				</div>
+			</a>
+			
+			<div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{% else %}	
+				<a rel="" href="{{ post.url }}" class="frameCard group">
+					{% image post.image height-240 format-webp class="object-cover w-full h-64 rounded-t-lg" %}
+					{% comment %} <img role="presentation" class="object-cover w-full h-64 rounded-t-lg " src="https://source.unsplash.com/random/480x320?1"> {% endcomment %}
+					<div class="p-6 space-y-2">
+						<h2 class="text-center font-bold group-hover:underline">{{ post.title|titulo }}</h2>
+						{% comment %} <span class="text-xs dark:text-gray-400">January 21, 2021</span> {% endcomment %}
+						<p>{{ post.introduction|truncatewords_html:30 }}</p>
+					</div>
+				</a>
+			{% endif %}   
+		{% endfor %}
+
+		</div>
+		{% comment %} <div class="flex justify-center">
+			<button type="button" class="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-900 dark:text-gray-400">Load more posts...</button>
+		</div> {% endcomment %}
+	</div>
+</section>
+
+{% endblock content %}
+
+
+{% block extra_js %}
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    var mobileMenuButton = document.getElementById("mobileMenuButton");
+    
+    mobileMenuButton.onclick = function() {
+        document.getElementById("sideMenuHideOnMobile").classList.toggle("-translate-y-full");
+        document.getElementById("sideMenuHideOnMobile").classList.toggle("mt-12");
+        document.getElementById("sideMenuHideOnMobile").classList.toggle("shadow");
+        document.getElementById("mobileMenuButtonClose").classList.toggle("hidden");
+        document.getElementById("mobileMenuButtonOpen").classList.toggle("hidden");
+    }
+      // Hide element when click outside nav
+    var theElementContainer = document.getElementsByTagName("nav")[0];
+    document.addEventListener('click', function(event) {
+        if (!theElementContainer.contains(event.target)) {
+            document.getElementById("sideMenuHideOnMobile").classList.add("-translate-y-full");
+            document.getElementById("sideMenuHideOnMobile").classList.remove("mt-12");
+            document.getElementById("sideMenuHideOnMobile").classList.remove("shadow");
+            document.getElementById("mobileMenuButtonOpen").classList.remove("hidden");
+            document.getElementById("mobileMenuButtonClose").classList.add("hidden");
+        }
+    });
+    var sideMenu = document.getElementById("sideMenuHideOnMobile").childNodes;
+    sideMenu.onclick = function() {    
+      document.getElementById("sideMenuHideOnMobile").classList.add("-translate-y-full");
+      document.getElementById("sideMenuHideOnMobile").classList.remove("mt-12");
+      document.getElementById("sideMenuHideOnMobile").classList.remove("shadow");
+      document.getElementById("mobileMenuButtonOpen").classList.remove("hidden");
+      document.getElementById("mobileMenuButtonClose").classList.add("hidden");
+    };
+  
+  });
+</script>
+
+
+{% endblock extra_js %}    
+
+
+
