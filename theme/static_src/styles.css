@@ -346,7 +346,7 @@ filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
     transform: rotate(-135deg);
 }
 
-.logoEffects .left {
+/* .logoEffects .left {
 @apply opacity-0
 }
 
@@ -356,11 +356,11 @@ filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
 
 .logoEffects .texto {
 @apply scale-x-0
-}
+} */
 
-/*	#CLEARFIX
+/* 	#CLEARFIX
 ============================================================*/
-.clearfix:before, .clearfix:after, .row:before, .row:after {
+/* .clearfix:before, .clearfix:after, .row:before, .row:after {
     content: '\0020';
     display: block;
     overflow: hidden;
@@ -369,10 +369,12 @@ filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
     height: 0; 
   }
   .row:after, .clearfix:after { clear: both; }
-  .row, .clearfix { zoom: 1; }
+  .row, .clearfix { zoom: 1; } */
 
-
-
+.letter {
+    display: inline-block;
+    line-height: 1em;
+  }
 
 
 

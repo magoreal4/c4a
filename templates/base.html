@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar favicon_tags %}
+{% load static wagtailcore_tags wagtailuserbar favicon_tags  %}
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -73,13 +73,18 @@
         <button class="btn btn-brand loading">loading</button>
     </div>
 
+    {% comment %} {% block breadcrumbs %} {% endcomment %}
+    {# breadcrumbs is defined in templatetags/navigation_tags.py #}
 
+{% comment %} {% endblock breadcrumbs %} {% endcomment %}
 
     {% comment %} https://github.com/rafaelbotazini/floating-whatsapp {% endcomment %}
-    <div id="whatsapp" class="z-10000 fixed bottom-12 left-1 sm:left-3 lg:left-10 xl:left-20 2xl:left-40"></div>
+    {% comment %} <div id="whatsapp" class="z-10000 fixed bottom-12 left-1 sm:left-3 lg:left-10 xl:left-20 2xl:left-40"></div> {% endcomment %}
     
     {% block content %}
+   
     {% endblock content %}
+
 
     {% include "footer.html"  %}
 

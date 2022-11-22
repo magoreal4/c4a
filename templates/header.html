@@ -1,21 +1,21 @@
 {% load static navigation_tags %}
 
 <header class="{{ class }}">
-    <nav class="h-20 fixed w-full top-0 z-50 {{navShadow}}">
+    <nav class="h-20 fixed w-full top-0 z-50 dark:text-light text-brand {{navShadow}}">
         <div class="float-left ml-7 mt-2 text-3xl tracking-wide">
             <a href="/">
-                <div class="flex justify-center mt-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra dark:text-light text-dark" viewBox="-5 -5 160 110">
+                <div class="flex justify-center mt-3 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra" viewBox="-5 -5 160 110">
                         <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="currentColor" stroke-width="4"/>
                         <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="currentColor" stroke-width="4"/>
                         <path stroke="currentColor" stroke-width="4" d="m84 26 12 7m-17 0 19 12M78 64l15 9M75 52l21 13M76 42l23 13"/>
                     </svg>
-                    <span class="hidden md:inline-block sombra pt-1 dark:text-light text-dark">commons4all</span>
+                    <span class="hidden md:inline-block sombra pt-1">commons4all</span>
                 </div>
             </a>
         </div>
-        <div class="menu-icon sombra h-12 w-12 border-2 rounded-md absolute top-4 right-4 dark:border-light border-dark">
-            <span class="dark:bg-light bg-dark dark:before:bg-light before:bg-dark dark:after:bg-light after:bg-dark"></span>
+        <div class="menu-icon sombra h-12 w-12 border-2 rounded-md absolute top-4 right-4 dark:border-light border-brand">
+            <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
             <span class=""></span>
         </div>
     </nav>
@@ -35,7 +35,7 @@
                         <li>
                             <a href="grid.html">Home - Small-width</a>
                         </li> {% endcomment %}
-                        <li>
+                        {% comment %} <li>
                             <a href="about.html">About Us</a>
                         </li>
                         <li>
@@ -43,9 +43,9 @@
                         </li>
                         <li>
                             <a href="single-post.html">Single Post</a>
-                        </li>
+                        </li> {% endcomment %}
                     </ul>
-                    <p>We create awesome templates for you.</p>
+                    <p>We create for you.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags filters_tags social_share wmetadata_tags breadcrumbs_tags static %}
+
+{% block meta_tag %}
+	{% comment %} {% meta_tags %} {% endcomment %}
+	{{ block.super }}
+  	
+{% endblock %}
+
+{% block css %}
+  	{{ block.super }}
+
+{% endblock %}
+
+{% block body_class %}bg-light w-full{% endblock body_class %}
+
+{% block content %}
+{% include "header.html" with class="mx-auto w-full z-50" navShadow="" %}
+
+<main class="">
+	<!-- PAGE TITLE SMALL -->
+	<div class="mt-20 mb-12 bg-brand bg-opacity-10">
+		<div class=" md:py-8 sm:px-4 container mx-auto">
+            <div class="flex flex-wrap">              
+				<div class="md:w-1/2 p-6">
+					<h1 class="text-brand border-l-4 border-darkAccent tracking-wider py-6 p-10">{{self.title|upper}}</h2>
+				</div>              
+                {% breadcrumbs %}
+            </div>
+          </div>
+		</div>
+	</div>
+
+	<!-- COTENT CONTAINER -->
+	<div class="container mx-auto sm:px-4 ">
+		<!-- CONTENT -->
+        <div class="pb-50 container">
+            {% image self.image fill-750x420 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}
+            <div class="prose-lg prose-ul:list-disc prose-ol:list-decimal prose-h3:text-brand prose-h3:font-semibold">
+            {{ self.body }}
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock content %}
+
+
+{% block js %}
+	{{ block.super }}
+{% endblock js %}    
+
+
+

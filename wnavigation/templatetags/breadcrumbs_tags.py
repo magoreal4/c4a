@@ -8,7 +8,7 @@ from wagtail.core.models import Page, Site
 register = template.Library()
 # https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/
 
-@register.inclusion_tag('tags/breadcrumbs.html', takes_context=True)
+@register.inclusion_tag('breadcrumbs.html', takes_context=True)
 def breadcrumbs(context):
     self = context.get('self')
     if self is None or self.depth <= 2:
