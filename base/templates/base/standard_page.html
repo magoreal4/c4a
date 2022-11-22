@@ -21,10 +21,10 @@
 <main class="">
 	<!-- PAGE TITLE SMALL -->
 	<div class="mt-20 mb-12 bg-brand bg-opacity-10">
-		<div class=" md:py-8 sm:px-4 container mx-auto">
-            <div class="flex flex-wrap">              
-				<div class="md:w-1/2 p-6">
-					<h1 class="text-brand border-l-4 border-darkAccent tracking-wider py-6 p-10">{{self.title|upper}}</h2>
+		<div class="container md:py-8 sm:px-4 mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between p-6">              
+				<div class="">
+					<h1 class="text-brand border-l-4 border-darkAccent tracking-wider p-10 ">{{self.title|upper}}</h2>
 				</div>              
                 {% breadcrumbs %}
             </div>
@@ -37,15 +37,12 @@
 		<!-- CONTENT -->
         <div class="pb-50 container">
             {% image self.image fill-750x420 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}
-            <div class="prose-lg prose-ul:list-disc prose-ol:list-decimal prose-h3:text-brand prose-h3:font-semibold">
+            <div class="mx-auto prose lg:prose-2xl prose-li:text-base lg:prose-li:text-lg prose-ul:list-disc prose-ol:list-decimal prose-h3:text-brand prose-h3:font-light">
             {{ self.body }}
             </div>
         </div>
     </div>
 </main>
-
-
-
 
 {% endblock content %}
 

@@ -1,33 +1,28 @@
 {% load wagtailcore_tags %}
 
-				<!-- breadcrumbs -->
-				{% comment %} <div class="md:w-1/2 p-4 pt-0 md:pt-10 ml-auto text-right">
-					<div class="md:mt-12 text-right uppercase tracking-widest">
-						<a href="index.html">Home</a><span class="slash-divider">/</span><a href="#">BLOG</a><span class="slash-divider">/</span><span class="bread-current">RIGHT SIDEBAR</span>
-					</div>
-				</div>  {% endcomment %}
-
 {% if ancestors %}
-<div class="md:w-1/2 p-4 pt-0 md:pt-10 ml-auto text-right">
-  <div class="md:mt-12 text-right uppercase tracking-widest flex justify-end">
+  <div class="pr-16 uppercase tracking-widest flex mt-auto ml-auto py-3 text-brand-dark">
     {% for ancestor in ancestors %}
       {% if forloop.last %}
         {{ ancestor }}
       {% else %}
         <a href="{% pageurl ancestor %}">
           {% if forloop.first %}
-          <svg class="h-6 w-6" fill="#black" xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" viewBox="0 0 24 24">
+          <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" viewBox="0 0 24 24">
             <path d="M22.262 10.468c-3.39-2.854-9.546-8.171-9.607-8.225L12 1.68l-.652.563c-.062.053-6.221 5.368-9.66 8.248A2.042 2.042 0 0 0 1 12a2 2 0 0 0 2 2h1v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6h1a2 2 0 0 0 2-2c0-.598-.275-1.161-.738-1.532zM14 20h-4v-5h4v5zm4-8l.002 8H15v-6H9v6H6v-8H2.999C5.764 9.688 10.314 5.773 12 4.32c1.686 1.453 6.234 5.367 9 7.681L18 12z"/>
           </svg>
           {% else %}
             {{ ancestor }}
           {% endif %}
         </a>
+        <svg aria-hidden="true" class="w-6 h-6" viewBox="0 0 11 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.41669 23.2091L7.76243 17L11 17L4.13954 25L0.302327 25C0.453036 24.9651 0.617043 24.8867 0.794348 24.7647C0.971652 24.6427 1.15339 24.4989 1.33956 24.3333C1.52573 24.1678 1.7119 23.9891 1.89807 23.7974C2.08424 23.5969 2.25711 23.4009 2.41669 23.2091Z" fill="currentColor"/>
+          <path d="M2.41669 10.7908L7.76243 17L11 17L4.13954 9L0.302327 9C0.453036 9.03486 0.617043 9.11329 0.794348 9.23529C0.971652 9.3573 1.15339 9.50109 1.33956 9.66667C1.52573 9.83224 1.7119 10.0109 1.89807 10.2026C2.08424 10.403 2.25711 10.5991 2.41669 10.7908Z" fill="currentColor"/>
+        </svg>
         {% endif %}
-        <span class="slash-divider">&nbsp/&nbsp</span>
         {% endfor %}
     </div>
-</div>
+
 
 {% comment %} <nav class="breadcrumb-container" aria-label="Breadcrumb">
   <div class="container mx-auto sm:px-4">
@@ -50,7 +45,7 @@
             <svg aria-hidden="true" class="w-6 h-6" viewBox="0 0 11 30" fill="white" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.41669 23.2091L7.76243 17L11 17L4.13954 25L0.302327 25C0.453036 24.9651 0.617043 24.8867 0.794348 24.7647C0.971652 24.6427 1.15339 24.4989 1.33956 24.3333C1.52573 24.1678 1.7119 23.9891 1.89807 23.7974C2.08424 23.5969 2.25711 23.4009 2.41669 23.2091Z" fill="currentColor"/>
               <path d="M2.41669 10.7908L7.76243 17L11 17L4.13954 9L0.302327 9C0.453036 9.03486 0.617043 9.11329 0.794348 9.23529C0.971652 9.3573 1.15339 9.50109 1.33956 9.66667C1.52573 9.83224 1.7119 10.0109 1.89807 10.2026C2.08424 10.403 2.25711 10.5991 2.41669 10.7908Z" fill="currentColor"/>
-          </svg>
+            </svg>
           </li>
           {% endif %}
           {% endfor %}
