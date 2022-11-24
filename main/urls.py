@@ -16,19 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
+
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from django.conf import settings
 
-from django.views.generic.base import RedirectView
+
+# from django.views.generic.base import RedirectView
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 
 from wfavicon.urls import urls as favicon_urls
 
 from wagtail.contrib.sitemaps.views import sitemap
+
+
+
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -58,11 +64,10 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += path("__reload__/", include("django_browser_reload.urls")),
 
-urlpatterns = urlpatterns + [
+urlpatterns = urlpatterns + i18n_patterns( 
+    # path('search/', search_views.search, name='search'),
+    
     path("", include(wagtail_urls)),
     path("", include(favicon_urls)),
-]
-
-# urlpatterns += [
-#     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'favicon.ico'))
-# ]
+    prefix_default_language=True,
+)

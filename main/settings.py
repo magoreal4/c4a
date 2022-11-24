@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'wanalytics',
     'wnavigation',
     'services',
-    'django_social_share',
 
+    'django_social_share',
+    "wagtail_localize",
+    "wagtail_localize.locales",
+    'wagtailvideos',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -76,6 +79,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Insert this here
+    "django.middleware.locale.LocaleMiddleware",
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
@@ -141,6 +146,8 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
+USE_L10N = True
+WAGTAIL_I18N_ENABLED = True
 USE_TZ = True
 
 
@@ -151,7 +158,7 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 ADMINS = [
-    ('gonzalo', 'magoreal@gmail.com'),
+    ('gonzalo', 'magoreal4@gmail.com'),
 ]
 
 MANAGERS = ADMINS
@@ -221,3 +228,8 @@ TAGGIT_CASE_INSENSITIVE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
+    ("en", "English"),
+    ("fr", "French"),
+    ("es", "Spanish"),
+]

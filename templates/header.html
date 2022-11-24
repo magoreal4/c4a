@@ -1,10 +1,10 @@
-{% load static navigation_tags %}
+{% load static navigation_tags i18n wagtailcore_tags %}
 
 <header class="{{ class }}">
-    <nav class="h-20 fixed w-full top-0 z-50 dark:text-light text-brand {{navShadow}}">
-        <div class="float-left ml-7 mt-2 text-3xl tracking-wide">
+    <nav class="h-20 lg:px-20 px-4 flex justify-between fixed w-full top-0 z-50 dark:text-light text-brand {{navShadow}}">
+        <div class="my-auto text-3xl tracking-wide">
             <a href="/">
-                <div class="flex justify-center mt-3 ">
+                <div class=" flex justify-center  ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra" viewBox="-5 -5 160 110">
                         <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="currentColor" stroke-width="4"/>
                         <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -14,9 +14,21 @@
                 </div>
             </a>
         </div>
-        <div class="menu-icon sombra h-12 w-12 border-2 rounded-md absolute top-4 right-4 dark:border-light border-brand">
-            <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
-            <span class=""></span>
+        <div class="my-auto flex">
+        {% if page %}
+        <div class="flex flex-col text-brand-dark pr-4 my-auto">
+            {% for translation in page.get_translations.live %}
+                {% get_language_info for translation.locale.language_code as lang %}
+            <a class="lowercase text-sm" href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
+                {{ lang.name_local }}
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+            <div class="menu-icon sombra  h-12 w-12 border-2 rounded-md dark:border-light border-brand">
+                <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
+                <span class=""></span>
+            </div>
         </div>
     </nav>
     <section class="overlay-menu bg-dark text-light">
@@ -26,24 +38,6 @@
                     <ul>
                         {% get_site_root as site_root %}
                         {% top_menu parent=site_root calling_page=self %}
-                        {% comment %} <li>
-                            <a href="index.html">Home - Full-width</a>
-                        </li>
-                        <li>
-                            <a href="masonry.html">Home - Masonry</a>
-                        </li>
-                        <li>
-                            <a href="grid.html">Home - Small-width</a>
-                        </li> {% endcomment %}
-                        {% comment %} <li>
-                            <a href="about.html">About Us</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">Blog Entries</a>
-                        </li>
-                        <li>
-                            <a href="single-post.html">Single Post</a>
-                        </li> {% endcomment %}
                     </ul>
                     <p>We create for you.</p>
                 </div>

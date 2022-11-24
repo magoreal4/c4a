@@ -10,8 +10,8 @@ from wagtail.admin.panels import (
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
+from wagtailvideos.edit_handlers import VideoChooserPanel
 
-# from wvideos.admin import VideoChooserPanel
 
 from wmetadata.models import MetadataPageMixin
 
@@ -25,6 +25,11 @@ class HomePage(MetadataPageMixin, Page):
         'services.ServicesPage',
         'base.StandardPage'
     ]
+
+    video_banner = models.ForeignKey('wagtailvideos.Video',
+                                     related_name='+',
+                                     null=True,
+                                     on_delete=models.SET_NULL)
 
     slogan = models.TextField(
         "Slogan",
@@ -69,6 +74,7 @@ class HomePage(MetadataPageMixin, Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('slogan'),
+        VideoChooserPanel('video_banner'),
         
         MultiFieldPanel([
             FieldPanel("whoweare"),
