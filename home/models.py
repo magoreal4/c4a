@@ -10,7 +10,7 @@ from wagtail.admin.panels import (
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
-from wagtailvideos.edit_handlers import VideoChooserPanel
+# from wagtailvideos.edit_handlers import VideoChooserPanel
 
 
 from wmetadata.models import MetadataPageMixin
@@ -74,7 +74,7 @@ class HomePage(MetadataPageMixin, Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('slogan'),
-        VideoChooserPanel('video_banner'),
+        FieldPanel('video_banner'),
         
         MultiFieldPanel([
             FieldPanel("whoweare"),

@@ -35,7 +35,7 @@ cat > ${app}.socket <<EOF
 # /etc/systemd/system/$app.socket
 
 [Unit]
-Description=gunicorn socket
+Description=$app socket
 
 [Socket]
 ListenStream=/run/$app.sock
@@ -48,13 +48,12 @@ cat > ${app}.service <<EOF
 # /etc/systemd/system/$app.service
 
 [Unit]
-Description=gunicorn daemon
+Description=$app daemon
 Requires=$app.socket
 After=network.target
 
-
 [Service]
-User=root
+User=gonzalo
 Group=www-data
 WorkingDirectory=$PWD
 ExecStart=$PWD/.venv/bin/gunicorn \
@@ -71,6 +70,7 @@ sudo cp $app.socket /etc/systemd/system/$app.socket
 sudo cp $app.service /etc/systemd/system/$app.service
 sudo systemctl enable $app
 sudo systemctl start $app
+sudo systemctl status $app
 
 sudo cp $app.com /etc/nginx/sites-available/$app.com
 sudo ln -s /etc/nginx/sites-available/$app.com /etc/nginx/sites-enabled/$app.com
