@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags wagtailcore_tags filters_tags wmetadata_tags wagtailvideos_tags  static cache %}
+{% comment %} {% load wagtailimages_tags wagtailcore_tags filters_tags wmetadata_tags wagtailvideos_tags  static cache %} {% endcomment %}
+{% load wagtailimages_tags wagtailcore_tags filters_tags wmetadata_tags  static cache %}
 
 {% block meta_tag %}
   {% meta_tags %} 
@@ -70,10 +71,16 @@
     </div>
       
     <div class="absolute top-0 left-0 w-full h-full object-cover bg-brand bg-opacity-30 z-10"></div>
-    {% video self.video_banner autoplay class=video %}
-    {% comment %} <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay="" loop="" muted>
-        <source src="media/original_videos/highway-loop.mp4" type="video/mp4" />
-    </video> {% endcomment %}
+    {% comment %} {% video self.video_banner autoplay class=video %} {% endcomment %}
+    {% if self.video %}
+    <video  class="absolute top-0 left-0 w-full h-full object-cover" autoplay="" loop="" muted>
+      <source src="{{ self.video.file.url }}" type="video/mp4">
+      Tu navegador no soporta videos.
+    </video>
+    {% endif %}
+      {% comment %} <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay="" loop="" muted>
+          <source src="media/original_videos/highway-loop.mp4" type="video/mp4" />
+      </video>  {% endcomment %}
   </section>
 <!-- Fin Banner -->
 
