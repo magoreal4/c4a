@@ -1,7 +1,7 @@
 Django==4.1.1
 wagtail==4.1.1
 django-environ==0.9.0
-wagtailvideos==2.11.1
+# wagtailvideos==2.11.1
 # wagtailsvg==0.0.33
 # django-inline-svg==0.1.1
 django-social-share==2.3.0

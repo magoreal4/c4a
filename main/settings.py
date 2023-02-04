@@ -42,10 +42,9 @@ INSTALLED_APPS = [
     'services',
 
     'django_social_share',
+    "wagtailmedia",
     "wagtail_localize",
     "wagtail_localize.locales",
-    # 'wagtailvideos',
-    "wagtailmedia",
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -59,7 +58,6 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail',
     'wagtail.contrib.settings',
-    # 'wagtail.contrib.modeladmin.options.ModelAdmin'
 
     'taggit',
     'modelcluster',
@@ -83,9 +81,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Insert this here
     "django.middleware.locale.LocaleMiddleware",
-
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
-    # 'wagtail.contrib.modeladmin',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -106,6 +102,7 @@ TEMPLATES = [
 
                 'wagtail.contrib.settings.context_processors.settings',
                 'services.context_processors.service_page',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -273,7 +270,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ("en", "English"),
-    ("fr", "French"),
     ("es", "Spanish"),
 ]
 

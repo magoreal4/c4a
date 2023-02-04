@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="my-auto flex">
-        {% comment %} {% if page %}
+        {% if page %}
         <div class="flex flex-col text-brand-dark pr-4 my-auto">
             {% for translation in page.get_translations.live %}
                 {% get_language_info for translation.locale.language_code as lang %}
@@ -24,7 +24,7 @@
             </a>
             {% endfor %}
         </div>
-        {% endif %} {% endcomment %}
+        {% endif %}
             <div class="menu-icon sombra  h-12 w-12 border-2 rounded-md dark:border-light border-brand">
                 <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
                 <span class=""></span>
