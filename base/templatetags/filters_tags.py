@@ -9,3 +9,7 @@ register = template.Library()
 def titulo(text):
     titulo = re.sub('\s\s','<br>',text)
     return mark_safe(titulo) 
+
+# @register.simple_tag(takes_context=True)
+# def get_site_root(context):
+#     return context['request'].site.root_page

@@ -1,7 +1,9 @@
 from django import template
 
-from wagtail.core.models import Page, Site
+# from wagtail.core.models import Page, Site
+from wagtail.core.models import Page, Locale, Site
 
+from django.utils.translation import get_language
 # from base.models import FooterText
 
 
@@ -14,7 +16,7 @@ def get_site_root(context):
     # This returns a core.Page. The main menu needs to have the site.root_page
     # defined else will return an object attribute error ('str' object has no
     # attribute 'get_children')
-    return Site.find_for_request(context['request']).root_page
+    return Site.find_for_request(context['request']).root_page.localized
 
 
 def has_menu_children(page):
@@ -24,9 +26,9 @@ def has_menu_children(page):
     return page.get_children().live().in_menu().exists()
 
 
-def has_children(page):
-    # Generically allow index pages to list their children
-    return page.get_children().live().exists()
+# def has_children(page):
+#     # Generically allow index pages to list their children
+#     return page.get_children().live().exists()
 
 
 def is_active(page, current_page):
@@ -39,7 +41,9 @@ def is_active(page, current_page):
 # a dropdown class to be applied to a parent
 @register.inclusion_tag('top_menu.html', takes_context=True)
 def top_menu(context, parent, calling_page=None):
-    menuitems = parent.get_children().live().in_menu()
+    menuitems = parent.get_children().live()
+    print(parent)
+    # print(get_language())
     for menuitem in menuitems:
         # menuitem.show_dropdown = has_menu_children(menuitem)
         # We don't directly check if calling_page is None since the template
@@ -84,11 +88,12 @@ def breadcrumbs(context):
         ancestors = ()
     else:
         ancestors = Page.objects.ancestor_of(
-            self, inclusive=True).filter(depth__gt=1)
+            self, inclusive=True).filter(depth__gt=1).filter(locale=Locale.get_active())
     return {
         'ancestors': ancestors,
         'request': context['request'],
     }
+
 
 
 # @register.inclusion_tag('base/include/footer_text.html', takes_context=True)
