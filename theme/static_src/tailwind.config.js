@@ -8,6 +8,7 @@ module.exports = {
         // '../../**/templates/**/**/*.html',
         '../../home/*.js',
         "./node_modules/flowbite/**/*.js",
+        "../../base/templates/base/standard_page.html"
     ],
     darkMode: 'class',
     theme: {

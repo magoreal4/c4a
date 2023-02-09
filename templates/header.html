@@ -5,32 +5,42 @@
         <div class="my-auto text-3xl tracking-wide">
             <a href="/">
                 <div class=" flex justify-center  ">
+                    <!-- Logotipo -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra" viewBox="-5 -5 160 110">
                         <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="currentColor" stroke-width="4"/>
                         <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="currentColor" stroke-width="4"/>
                         <path stroke="currentColor" stroke-width="4" d="m84 26 12 7m-17 0 19 12M78 64l15 9M75 52l21 13M76 42l23 13"/>
                     </svg>
+
                     <span class="hidden md:inline-block sombra pt-1">commons4all</span>
+                    
                 </div>
             </a>
         </div>
         <div class="my-auto flex">
+            
         {% if page %}
-        <div class="flex flex-col text-brand-dark pr-4 my-auto">
-            {% for translation in page.get_translations.live %}
-                {% get_language_info for translation.locale.language_code as lang %}
-            <a class="lowercase text-sm" href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
-                {{ lang.name_local }}
-            </a>
-            {% endfor %}
-        </div>
-        {% endif %}
-            <div class="menu-icon sombra  h-12 w-12 border-2 rounded-md dark:border-light border-brand">
-                <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
-                <span class=""></span>
+            <div class="flex flex-col text-brand-dark pr-4 my-auto">
+                {% for translation in page.get_translations.live %}
+                    {% get_language_info for translation.locale.language_code as lang %}
+                <a class="lowercase text-sm" href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
+                    {{ lang.name_local }}
+                </a>
+                {% endfor %}
             </div>
+        {% endif %}
+            <button class="relative flex items-center p-1">
+                <div class="menu-icon sombra h-12 w-12 border-2 rounded-md dark:border-light border-brand">
+                    <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
+                    <span class=""></span>
+                </div> 
+            </button>
+            {% comment %} <div class="menu-icon sombra h-12 w-12 border-2 rounded-md dark:border-light border-brand">
+                <span class="dark:bg-light bg-brand dark:before:bg-light before:bg-brand dark:after:bg-light after:bg-brand"></span>
+                <span class=""></span> {% endcomment %}
         </div>
     </nav>
+
     <section class="overlay-menu bg-dark text-light">
         <div class="container mx-auto">
             <div class="row">
@@ -44,4 +54,5 @@
             </div>
         </div>
     </section>
+
 </header>
